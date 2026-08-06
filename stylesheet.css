@@ -1,0 +1,7 @@
+.speak-bar {
+  position: relative;
+
+  background: #00000061;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}

@@ -1,0 +1,15 @@
+node_modules/
+
+# tsc compiles src/**/*.ts into the repo root (see tsconfig.json outDir)
+/*.js
+/*.js.map
+/utils/
+
+# compiled from schemas/*.gschema.xml via glib-compile-schemas
+schemas/gschemas.compiled
+
+# recordings produced at runtime by onHoldKeybinding()
+/audio.mp3
+
+.vscode/
+.gt/

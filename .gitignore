@@ -1,9 +1,12 @@
 node_modules/
 
-# tsc compiles src/**/*.ts into the repo root (see tsconfig.json outDir)
+# tsc compiles src/**/*.ts into the repo root (see tsconfig.json outDir),
+# mirroring the src/ subfolder layout
 /*.js
 /*.js.map
 /utils/
+/overlay/
+/recording/
 
 # compiled from schemas/*.gschema.xml via glib-compile-schemas
 schemas/gschemas.compiled

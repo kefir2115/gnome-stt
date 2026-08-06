@@ -16,3 +16,6 @@ schemas/gschemas.compiled
 
 .vscode/
 .gt/
+
+bin/
+whisper-cpp

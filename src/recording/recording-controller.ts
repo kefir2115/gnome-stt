@@ -37,7 +37,7 @@ export class RecordingController {
   }
 
   private onHoldKeybinding() {
-    const audioPath = `${this.extension.path}/audio.mp3`;
+    const audioPath = `${this.extension.path}/audio.wav`;
     let stopRecording: (() => void) | null = null;
 
     if (this.holdTimeoutId) {

@@ -2,7 +2,7 @@ import Gio from "gi://Gio";
 
 export function recordAudio(outPath: string): () => void {
   let proc: Gio.Subprocess | null = new Gio.Subprocess({
-    argv: ["pw-record", outPath],
+    argv: ["pw-record", "--rate=16000", "--channels=1", outPath],
     flags: Gio.SubprocessFlags.NONE,
   });
 

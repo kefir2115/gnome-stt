@@ -7,12 +7,13 @@ node_modules/
 /utils/
 /overlay/
 /recording/
+/stt/
 
 # compiled from schemas/*.gschema.xml via glib-compile-schemas
 schemas/gschemas.compiled
 
 # recordings produced at runtime by onHoldKeybinding()
-/audio.mp3
+/audio.wav
 
 .vscode/
 .gt/

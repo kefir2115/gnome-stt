@@ -24,7 +24,8 @@ export function transcribe(
 
   proc.init(null);
 
-  proc.communicate_utf8_async(null, null).then(([stdout]) => {
+  proc.communicate_utf8_async(null, null, (source, result) => {
+    const [, stdout] = source!.communicate_utf8_finish(result);
     callback(cleanTranscript(stdout));
   });
 }

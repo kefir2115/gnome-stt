@@ -9,19 +9,29 @@ export function recordAudio(outPath: string): () => Promise<void> {
 
   proc.init(null);
 
-  return async () => {
-    if (!proc) return;
+  return () =>
+    new Promise<void>((resolve) => {
+      if (!proc) {
+        resolve();
+        return;
+      }
 
-    const finishedProc = proc;
-    proc = null;
+      const finishedProc = proc;
+      proc = null;
 
-    finishedProc.send_signal(2);
+      finishedProc.send_signal(2);
 
-    await finishedProc
-      .wait_check_async(null)
-      .catch(() => {})
-      .finally(() => fixWavHeader(outPath));
-  };
+      finishedProc.wait_check_async(null, (source, result) => {
+        try {
+          source!.wait_check_finish(result);
+        } catch {
+          // pw-record exits non-zero when killed by SIGINT, that's expected
+        }
+
+        fixWavHeader(outPath);
+        resolve();
+      });
+    });
 }
 
 // pw-record writes placeholder RIFF/data chunk sizes upfront and only

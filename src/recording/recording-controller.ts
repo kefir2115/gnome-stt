@@ -44,7 +44,27 @@ export class RecordingController {
   }
 
   private onHoldKeybinding() {
-    const audioPath = `${this.extension.path}/audio.wav`;
+    // TEMP DEBUG: skip live recording, replay a fixed sample on release instead.
+    // Revert to the block below once mic testing is possible again.
+    const DEBUG_SKIP_RECORDING = false;
+    const audioPath = DEBUG_SKIP_RECORDING
+      ? `${this.extension.path}/test-audio.wav`
+      : `${this.extension.path}/audio.wav`;
+
+    if (DEBUG_SKIP_RECORDING) {
+      if (this.holdTimeoutId) {
+        clearTimeout(this.holdTimeoutId);
+      } else {
+        this.overlay.setRecording(true);
+      }
+
+      this.holdTimeoutId = setTimeout(() => {
+        this.holdTimeoutId = null;
+        this.overlay.setRecording(false);
+        transcribe(audioPath, this.extension.path, (text) => typeText(text));
+      }, HOLD_RELEASE_TIMEOUT);
+      return;
+    }
 
     if (this.holdTimeoutId) {
       clearTimeout(this.holdTimeoutId);

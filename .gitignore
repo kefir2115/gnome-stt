@@ -14,6 +14,7 @@ schemas/gschemas.compiled
 
 # recordings produced at runtime by onHoldKeybinding()
 /audio.wav
+/test-audio.wav
 
 .vscode/
 .gt/

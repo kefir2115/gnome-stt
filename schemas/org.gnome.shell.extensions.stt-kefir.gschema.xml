@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.myoverlay" path="/org/gnome/shell/extensions/myoverlay/">
+  <schema id="org.gnome.shell.extensions.stt-kefir" path="/org/gnome/shell/extensions/stt-kefir/">
     <key name="toggle-recording" type="as">
       <default><![CDATA[['<Super>z']]]></default>
       <summary>Toggle recording</summary>

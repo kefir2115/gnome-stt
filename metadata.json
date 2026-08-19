@@ -1,8 +1,8 @@
 {
-  "uuid": "myoverlay@caruma",
-  "name": "My Overlay Bar",
-  "description": "Custom taskbar overlay",
+  "uuid": "speech-to-text@kefir",
+  "name": "Speech to text overlay",
+  "description": "Super+Z to and hold to start speaking",
   "shell-version": ["46"],
   "version": 3,
-  "settings-schema": "org.gnome.shell.extensions.myoverlay"
+  "settings-schema": "org.gnome.shell.extensions.stt-kefir"
 }
